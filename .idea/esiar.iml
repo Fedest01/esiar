@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+<<<<<<< HEAD
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration />
     </facet>
   </component>
+=======
+>>>>>>> 80bbb1010ea52cb1d44f579100a1b11bf9fe639f
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
