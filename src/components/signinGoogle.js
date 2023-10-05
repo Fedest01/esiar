@@ -6,7 +6,7 @@ try{
     const result = await GoogleSignin.signIn();
     return auth.GoogleAuthProvider.credential(result.idToken);
 
-} catch (error:any) {
+} catch () {
     console.log(error);
     if (error.code === STATUS_CODES.SIGN_IN_CANCELED){
         console.log('SIGN_IN_CANCELED')
