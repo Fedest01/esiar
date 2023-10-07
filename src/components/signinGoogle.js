@@ -5,6 +5,7 @@ try{
     await GoogleSignIn.hasPlayServices();
     const result = await GoogleSignin.signIn();
     return auth.GoogleAuthProvider.credential(result.idToken);
+    
 
 } catch () {
     console.log(error);
