@@ -11,3 +11,8 @@ export const useAuth = () => {
     }
     return context;
 };
+
+//componente para globalizar el contexto y compartir info entre componenetes
+export function AuthProvider({ children }){
+return <authContext.Provider> {children} </authContext.Provider>
+}
