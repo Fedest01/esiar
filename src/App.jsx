@@ -1,14 +1,15 @@
 
 import './App.css';
-import { AuthPorvider } from "./contexts/authContext/a";
+import { AuthPorvider, AuthProvider } from "./contexts/authContext/authContext";
 import { getAnalytics } from "firebase/analytics";
 
 function App() {
   return (
-    <>
-      <FormLogin/>
-      
-    </>
+    <AuthProvider>
+    <div className='app'>
+        <h1>Esiar</h1>
+    </div>
+    </AuthProvider>
   );
 }
 
