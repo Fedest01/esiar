@@ -1,6 +1,6 @@
 
 import './App.css';
-import { AuthPorvider, AuthProvider } from "./contexts/authContext/authContext";
+import { AuthProvider} from "./contexts/authContext/authContext";
 import { getAnalytics } from "firebase/analytics";
 
 function App() {
