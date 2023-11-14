@@ -1,5 +1,5 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
+//acceder con la cuenta de google a traves de una ventana emergente o PopUp
 const auth = getAuth();
 signInWithPopup(auth, provider)
   .then((result) => {
