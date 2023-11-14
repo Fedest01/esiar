@@ -1,5 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+//si se quiere crear una cuenta nueva, pasa la dirección de correo electrónico y la contraseña del usuario nuevo a createUserWithEmailAndPassword
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
