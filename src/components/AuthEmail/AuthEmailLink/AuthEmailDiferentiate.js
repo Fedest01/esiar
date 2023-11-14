@@ -1,4 +1,5 @@
 import { getAuth, fetchSignInMethodsForEmail, EmailAuthProvider} from "firebase/auth";
+// se identifica con fetchSignInMethodsForEmail a fin de diferenciar el método de acceso para un usuario con contraseña/vínculo
 
 // After asking the user for their email.
 const email = window.prompt('Please provide your email');

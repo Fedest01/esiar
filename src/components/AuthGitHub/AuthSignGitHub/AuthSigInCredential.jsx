@@ -1,5 +1,5 @@
 import { getAuth, signInWithCredential } from "firebase/auth";
-
+// se usa la credencial de Firebase para autenticar con Firebase
 // Sign in with the credential from the user.
 const auth = getAuth();
 signInWithCredential(auth, credential)

@@ -1,5 +1,5 @@
 import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
-
+//Para completar el acceso, llama a signInWithEmailLink con el correo electrónico del usuario y el vínculo de correo electrónico correspondiente que contiene el código de uso único.
 // Confirm the link is a sign-in with email link.
 const auth = getAuth();
 if (isSignInWithEmailLink(auth, window.location.href)) {

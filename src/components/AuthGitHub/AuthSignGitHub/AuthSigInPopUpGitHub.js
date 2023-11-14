@@ -1,4 +1,5 @@
 import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
+//acceder con la cuenta de github a traves de una ventana emergente o PopUp
 
 const auth = getAuth();
 signInWithPopup(auth, provider)

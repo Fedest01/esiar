@@ -1,5 +1,5 @@
 import { getAuth, sendSignInLinkToEmail } from "firebase/auth";
-
+//Envía el vínculo de autenticación al correo electrónico del usuario y se guarda su correo en caso de que este complete el acceso con correo electrónico en el mismo dispositivo.
 const auth = getAuth();
 sendSignInLinkToEmail(auth, email, actionCodeSettings)
   .then(() => {

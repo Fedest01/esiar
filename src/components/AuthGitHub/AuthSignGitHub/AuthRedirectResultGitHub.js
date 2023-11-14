@@ -1,4 +1,5 @@
 import { getAuth, getRedirectResult, GithubAuthProvider } from "firebase/auth";
+// para recupera el token de 0auth del provedor de google, se llama a a getRedirectResult cuando se cargue la pagina
 
 const auth = getAuth();
 getRedirectResult(auth)

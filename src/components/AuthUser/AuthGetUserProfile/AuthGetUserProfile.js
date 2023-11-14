@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-
+//obtener la información del perfil de un usuario, usando las propiedades de una instancia de User
 const auth = getAuth();
 const user = auth.currentUser;
 if (user !== null) {

@@ -1,5 +1,5 @@
 import { getAuth, updatePassword } from "firebase/auth";
-
+//configurar la contraseña de un usuario, usando el método updatePassword
 const auth = getAuth();
 
 const user = auth.currentUser;
