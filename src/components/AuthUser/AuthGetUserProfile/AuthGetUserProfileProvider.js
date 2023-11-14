@@ -1,5 +1,5 @@
 import { getAuth } from "firebase/auth";
-
+//obtener la información de perfil que se recuperó de los proveedores de acceso vinculados con un usuario, usando providerData
 const auth = getAuth();
 const user = auth.currentUser;
 
