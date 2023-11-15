@@ -8,7 +8,6 @@ import { getFirestore } from "firebase/firestore";
 
 const auth = getAuth(appFirebase);
 const db = getFirestore(appFirebase);
-const userCredential = obtenerUserCredential();
 const [errorMessage, setErrorMessage] = useState(null);
 function Registro(props) {
 
@@ -23,6 +22,7 @@ function Registro(props) {
 
  // Guardar el nombre, correo y contraseña en la base de datos
         try{ 
+            const userCredential = await createUserWithEmailAndPassword (auth, correo, contraseña);
         await setDoc(doc(db, "Usuarios", userCredential.user.uid), {
         nombre: nombre,
         email: correo,
