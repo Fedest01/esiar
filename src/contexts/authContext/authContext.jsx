@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword,
     signInWithEmailAndPassword, 
     GoogleAuthProvider, 
     signInWithPopup,
-    GitHubAuthProvider,
+    GithubAuthProvider,
 signOut,
  } from "firebase/auth";
 import { createContext, useContext } from "react"
@@ -43,7 +43,7 @@ const loginWithGoogle = async () =>{
 
 //funcion para controlar iniciar sesion con Git Hub
 const loginWithGitHub = async () =>{
-    const responseGitHub = new GitHubAuthProvider()
+    const responseGitHub = new GithubAuthProvider()
     return await signInWithPopup(auth, responseGitHub)
 }
 

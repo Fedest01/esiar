@@ -1,14 +1,15 @@
+import React from 'react'; // Asegúrate de importar React
 
-import './App.css';
-import { AuthProvider} from "./contexts/authContext/authContext";
-import { getAnalytics } from "firebase/analytics";
+import { AuthProvider } from './contexts/authContext/authContext';
+import { Registro } from './components/Agregar-usuario/Agregar-usuario';
 
 function App() {
   return (
     <AuthProvider>
-    <div className='app'>
+      <div className='app'>
         <h1>Esiar</h1>
-    </div>
+        <Registro />
+      </div>
     </AuthProvider>
   );
 }
