@@ -5,22 +5,26 @@ export default class AddUsuario extends Component{
 constructor(props){
 
 super(props)
-this.onChangeTitle = this.onChangeTtile.bind (this);
+this.onChangeTitle = this.onChangeTitle.bind (this);
 this.onChangeDescription = this.onChangeDescription.bind (this);
 this.saveTutorial = this.saveTutorial.bind (this);
 this.newTutorial = this.newTutorial.bind (this);
 
-this.state = (
-    title = '',
-    description = '',
+this.state = {
+    title: '',
+    description: '',
     published: false,
-
     submitted: false,
-
-);
+};
 }
 
 onChangeTitle(e){
+    this.setState({
+        title: e.target.value,
+    });
+}
+
+onChangeDescription(e){
     this.setState({
         description: e.target.value,
     });
@@ -30,59 +34,60 @@ saveTutorial(){
     let data = {
         title: this.state.title,
         description: this.state.description,
-        published: false
+        published: this.state.published
     };
-}
 
-UsuarioDataService.create(data)
-.then (() => {
-    console.log('Created new item succesfully');
-    this.setState({
-        submitted:true,
+    UsuarioDataService.create(data)
+    .then (() => {
+        console.log('Created new item succesfully');
+        this.setState({
+            submitted:true,
+        });
+    })
+
+    .catch((e) => {
+        console.log(e);
     });
-})
-
-.catch((e) => {
-    console.log(e);
-});
+}
 
 render(){
     return(
         <div className='submit-form'></div>
-        {this.state.submitted ? (
+        {this.state.submitted ? 
+            (
             <div>
-            <h4>Your submitted succesfully</h4>
-            <button className="btn btn-success" onClick={this.newTutorial}>
-            Add
-            </button>
+                <h4>Your submitted succesfully</h4>
+                <button className="btn btn-success" onClick={this.newTutorial}>
+                    Add
+                </button>
             </div>
-        ): (
+        ) : (
             <div>
-            <div className="form-group">
-            <label htmlFor="title">Title</label>
-            <input
-            type="text"
-            className="form-control"
-            id="title"
-            required
-            value={this.state.title}
-            onChange={this.onChangeTitle}
-            name="title"
-            />
-            </div>
-            
-
-            <div className="form-group">
-            <label htmlFor="description">Description</label>
-            <input
-            type="text"
-            className="form-control"
-            id="description"
-            required
-            value={this.state.description}
-            onChange={this.onChangeDescription}
-            name="description"
-            />
+                <div className="form-group">
+                    <label htmlFor="title">Title</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="title"
+                        required
+                        value={this.state.title}
+                        onChange={this.onChangeTitle}
+                        name="title"
+                    />
+                </div>
+        
+                <div className="form-group">
+                    <label htmlFor="description">Description</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="description"
+                        required
+                        value={this.state.description}
+                        onChange={this.onChangeDescription}
+                        name="description"
+                    />
+                </div>
             </div>
         )}
     )
