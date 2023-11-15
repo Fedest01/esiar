@@ -1,94 +1,65 @@
-import { render } from "@testing-library/react";
-import React, {Component} from "react";
+//import { alta } from "./alta";
+import { getAnalytics } from "firebase/analytics";
+import React, { useState } from 'react';
+import appFirebase from '/app_6to/esiar/src/components/firebaseConfig/firebaseConfig';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
+import { getFirestore } from "firebase/firestore";
 
-export default class AddUsuario extends Component{
-constructor(props){
+const auth = getAuth(appFirebase);
+const db = getFirestore(appFirebase);
+const [errorMessage, setErrorMessage] = useState(null);
+function Registro(props) {
 
-super(props)
-this.onChangeTitle = this.onChangeTitle.bind (this);
-this.onChangeDescription = this.onChangeDescription.bind (this);
-this.saveTutorial = this.saveTutorial.bind (this);
-this.newTutorial = this.newTutorial.bind (this);
+ const functAutenticacion = async (e) =>{  
+    e.preventDefault();
+    const correo = e.target.email.value;
+    const contraseña = e.target.password.value;
+    const confirmarContraseña = e.target['con-password'].value;
+    const nombre = e.target.nombre.value;
 
-this.state = {
-    title: '',
-    description: '',
-    published: false,
-    submitted: false,
-};
-}
 
-onChangeTitle(e){
-    this.setState({
-        title: e.target.value,
-    });
-}
 
-onChangeDescription(e){
-    this.setState({
-        description: e.target.value,
-    });
-}
+ // Guardar el nombre, correo y contraseña en la base de datos
+        try{ 
+            const userCredential = await createUserWithEmailAndPassword (auth, correo, contraseña);
+        await setDoc(doc(db, "Usuarios", userCredential.user.uid), {
+        nombre: nombre,
+        email: correo,
+        contraseña: contraseña
+      });
+    }catch (error) {
+        console.error("Error al guardar en la base de datos:", error);
+        setErrorMessage("Hubo un error inesperado, por favor intente más tarde.");
+    }
+  }
 
-saveTutorial(){
-    let data = {
-        title: this.state.title,
-        description: this.state.description,
-        published: this.state.published
-    };
 
-    UsuarioDataService.create(data)
-    .then (() => {
-        console.log('Created new item succesfully');
-        this.setState({
-            submitted:true,
-        });
-    })
-
-    .catch((e) => {
-        console.log(e);
-    });
-}
-
-render(){
-    return(
-        <div className='submit-form'></div>
-        {this.state.submitted ? 
-            <div>
-                <h4>Your submitted succesfully</h4>
-                <button className="btn btn-success" onClick={this.newTutorial}>
-                    Add
-                </button>
-            </div>
-        : 
-            <div>
-                <div className="form-group">
-                    <label htmlFor="title">Title</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="title"
-                        required
-                        value={this.state.title}
-                        onChange={this.onChangeTitle}
-                        name="title"
-                    />
-                </div>
-        
-                <div className="form-group">
-                    <label htmlFor="description">Description</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="description"
-                        required
-                        value={this.state.description}
-                        onChange={this.onChangeDescription}
-                        name="description"
-                    />
-                </div>
-            </div>
-        }
-    )
-}
-}
+  return (
+    <>
+      <div className="form-container">
+        <div className='div-center'>
+          <h2 className='form-title'>Registrarse</h2>
+        </div>
+        <hr className='Line-separator' />
+        <form onSubmit={functAutenticacion}>
+          <div className='inputBlock'>
+          <div><input className='input-field inputMitad' type='text' placeholder='Nombre' id='nombre'/></div>
+    
+          </div>
+          <input className='input-field' type='text' placeholder='E-mail' id='email'/>
+                      
+          <input className='input-field' type='password' placeholder='Contraseña ' id='password'/>
+          
+          <input className='input-field' type='password' placeholder='Confirmar contraseña ' id='con-password'/>
+          
+          <div className='div-center'>
+          <button className='button'>Registrarse</button>
+          </div>
+        </form>
+      
+        </div>
+    </>
+    )};
+    
+    export {Registro} ;
