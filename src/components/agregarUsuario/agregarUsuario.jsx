@@ -1,7 +1,7 @@
 //import { alta } from "./alta";
 import { getAnalytics } from "firebase/analytics";
 import React, { useState } from 'react';
-import appFirebase from '/app_6to/esiar/src/components/firebaseConfig/firebaseConfig';
+import appFirebase from '/app_6to/esiar/src/components/firebaseConfig/firebaseConfig.js';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
@@ -60,6 +60,6 @@ function Registro(props) {
       
         </div>
     </>
-    )};
+    )}
     
     export {Registro} ;

@@ -60,6 +60,6 @@ function Registro(props) {
       
         </div>
     </>
-    )};
+    )}
     
     export {Registro} ;
