@@ -54,14 +54,13 @@ render(){
     return(
         <div className='submit-form'></div>
         {this.state.submitted ? 
-            (
             <div>
                 <h4>Your submitted succesfully</h4>
                 <button className="btn btn-success" onClick={this.newTutorial}>
                     Add
                 </button>
             </div>
-        ) : (
+        : 
             <div>
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
@@ -89,13 +88,7 @@ render(){
                     />
                 </div>
             </div>
-        )}
+        }
     )
 }
-
-
-
-
-
-
-
+}
