@@ -6,7 +6,7 @@ import appFirebase from '../firebaseConfig/firebaseConfig';
 import { Link, useNavigate } from 'react-router-dom';
 import { doc, setDoc, getDocs, collection, query, where, getFirestore } from "firebase/firestore"; 
 import { getAuth, signInWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
-
+import Label from '../Label/Label';
 const auth = getAuth(appFirebase);
 
 function Login(props) {
