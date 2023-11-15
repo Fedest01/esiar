@@ -4,10 +4,9 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle,faGithub } from '@fortawesome/free-brands-svg-icons';
 import appFirebase from '../firebaseConfig/firebaseConfig';
 import { Link, useNavigate } from 'react-router-dom';
-
-
 import { doc, setDoc, getDocs, collection, query, where, getFirestore } from "firebase/firestore"; 
 import { getAuth, signInWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
+
 const auth = getAuth(appFirebase);
 
 function Login(props) {
