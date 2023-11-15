@@ -11,7 +11,7 @@ function App() {
       <div className='app'>
         <h1>Esiar</h1>
         
-        <Registro />
+        <Login />
       </div>
     
   );
