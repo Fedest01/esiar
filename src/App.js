@@ -1,17 +1,19 @@
 import React from 'react'; // Asegúrate de importar React
-
-import { AuthProvider } from './contexts/authContext/authContext';
+import './App.css';
 import { Registro } from './components/register/register';
+import { useState, useEffect } from 'react';
+
 
 
 function App() {
   return (
-    <AuthProvider>
+    
       <div className='app'>
         <h1>Esiar</h1>
+        
         <Registro />
       </div>
-    </AuthProvider>
+    
   );
 }
 
