@@ -1,7 +1,7 @@
 import React from 'react'; // Asegúrate de importar React
 
 import { AuthProvider } from './contexts/authContext/authContext';
-import { Registro } from './components/agregarUsuario/agregarUsuario';
+import { Registro } from './components/registro/agregarUsuario';
 
 function App() {
   return (
