@@ -1,5 +1,3 @@
-//import { alta } from "./alta";
-import { getAnalytics } from "firebase/analytics";
 import React, { useState } from 'react';
 import appFirebase from '/app_6to/esiar/src/components/firebaseConfig/firebaseConfig.js';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
@@ -8,8 +6,9 @@ import { getFirestore } from "firebase/firestore";
 
 const auth = getAuth(appFirebase);
 const db = getFirestore(appFirebase);
-const [errorMessage, setErrorMessage] = useState(null);
+
 function Registro(props) {
+ const [errorMessage, setErrorMessage] = useState(null);
 
  const functAutenticacion = async (e) =>{  
     e.preventDefault();
@@ -18,21 +17,19 @@ function Registro(props) {
     const confirmarContraseña = e.target['con-password'].value;
     const nombre = e.target.nombre.value;
 
-
-
- // Guardar el nombre, correo y contraseña en la base de datos
-        try{ 
-            const userCredential = await createUserWithEmailAndPassword (auth, correo, contraseña);
-        await setDoc(doc(db, "Usuarios", userCredential.user.uid), {
+    // Guardar el nombre, correo y contraseña en la base de datos
+    try{ 
+      const userCredential = await createUserWithEmailAndPassword (auth, correo, contraseña);
+      await setDoc(doc(db, "Usuarios", userCredential.user.uid), {
         nombre: nombre,
         email: correo,
         contraseña: contraseña
       });
     }catch (error) {
-        console.error("Error al guardar en la base de datos:", error);
-        setErrorMessage("Hubo un error inesperado, por favor intente más tarde.");
+      console.error("Error al guardar en la base de datos:", error);
+      setErrorMessage("Hubo un error inesperado, por favor intente más tarde.");
     }
-  }
+ }
 
 
   return (
