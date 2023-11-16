@@ -42,7 +42,18 @@ const signInWithGoogle = () => {
      });
    }
 
-   
+
+// Constante para iniciar sesion con github
+   const signInWithGithub = () => {
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result.user);  // Puedes acceder a la información del usuario aquí
+      }).catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <>
       <div className="form-container">
@@ -62,6 +73,7 @@ const signInWithGoogle = () => {
           <input className='input-field' type='password' placeholder='Confirmar contraseña ' id='con-password'/>
           
           <button onClick={signInWithGoogle}>Iniciar sesión con Google</button> 
+          <button onClick={signInWithGithub}>Iniciar sesión con GitHub</button> 
 
           <div className='div-center'>
           <button className='button'>Registrarse</button>

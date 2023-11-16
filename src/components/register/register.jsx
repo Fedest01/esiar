@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import appFirebase from '../firebaseConfig/firebaseConfig.js';
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
-import { getAuth,GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
 
 const auth = getAuth(appFirebase);
 const db = getFirestore(appFirebase);
@@ -42,7 +42,19 @@ function Registro(props) {
       });
     }
 
-    
+  // Constante para iniciar sesion con github
+  const signInWithGithub = () => {
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result.user);  // Puedes acceder a la información del usuario aquí
+      }).catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+
+
   return (
     <>
       <div className="form-container">
@@ -63,6 +75,7 @@ function Registro(props) {
           
           <button onClick={signInWithGoogle}>Iniciar sesión con Google</button> 
  
+          <button onClick={signInWithGithub}>Iniciar sesión con GitHub</button> 
 
           <div className='div-center'>
           <button className='button'>Registrarse</button>
