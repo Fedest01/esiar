@@ -1,3 +1,4 @@
+//se importan dependencias y metodos de firebase y json
 import React, { useState } from 'react';
 import {appFirebase} from '../firebaseConfig/firebaseConfig.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +12,7 @@ import '../register/register.css'
 const auth = getAuth(appFirebase);
 //const db = getFirestore(appFirebase);
 
-function Registro(props) {
+function Registro(props) { //funcion registro
   const [errorMessage, setErrorMessage] = useState(null);
   
 
@@ -74,7 +75,7 @@ const signInAnonimo = () => {
       });
   };
 
-  return (
+  return ( //return del registro
     <>
       <div className="form-container">
         <div className='div-center'>
@@ -116,10 +117,11 @@ const signInAnonimo = () => {
         </div>
     </>
     )}
-    // Función para obtener el UID de un usuario por su correo electrónico
+// Función para obtener el UID de un usuario por su correo electrónico
   const obtenerUidPorCorreo = async (correo) => {
   const usersCollection = db.collection('Usuarios');
 
+  //try catch para obtener el UID del usuario
   try {
     const querySnapshot = await getDocs(usersCollection.where('email', '==', correo));
     if (!querySnapshot.empty) {
@@ -159,7 +161,7 @@ obtenerUidPorCorreo(correoUsuario);
   const uidUsuarioADeshabilitar = 'uid_del_usuario_a_deshabilitar';
   deshabilitarUsuario(uidUsuarioADeshabilitar);
     
-  
+  //exportando funciones
   export {Registro} ;
   export {obtenerUidPorCorreo};
   export {deshabilitarUsuario};
