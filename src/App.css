@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	background: #f1f1f19f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.titulo , .tituloDos {
+	text-align: center;
+	font-weight: 600;
+	font-size: 60px;
+	margin-bottom: 15px;
+	color: #5eaff1;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.tituloDos{
+	color: #f36aa8;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.eslogan {
+	font-size: 30px;
+	font-weight: 500;
+	margin-bottom: 35px;
 }

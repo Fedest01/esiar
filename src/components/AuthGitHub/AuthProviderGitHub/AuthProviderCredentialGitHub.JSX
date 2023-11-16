@@ -1,4 +1,4 @@
-import { GithubAuthProvider } from "firebase/auth";
+//import { GithubAuthProvider } from "firebase/auth";
 
 const provider = new GithubAuthProvider();
 
