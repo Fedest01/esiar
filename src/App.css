@@ -8,22 +8,21 @@ body {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
-	margin: -20px 0 50px;
+	
 }
 .titulo , .tituloDos {
-  margin-top: 15px;
+  margin-top: 30px;
 	text-align: center;
 	font-weight: 400;
-	font-size: 64px;
-	margin-bottom: 15px;
-	color: #5eaff1;
+	font-size: 56px;
+	margin-bottom: 5px;
+	color: #333;
 }
 .tituloDos{
-	color: #f36aa8;
+	color: #5f5f5f;
 }
 .eslogan {
-	font-size: 26px;
+	font-size: 20px;
 	font-weight: 500;
-	margin-bottom: 35px;
+	margin-bottom: 6px;
 }

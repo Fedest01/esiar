@@ -1,50 +1,50 @@
 body {
     background-color: #ebebeb;
     font-family: 'Montserrat', sans-serif;
-   }
-   
-   .form-container {
-    position: relative;
-	overflow: hidden;
-    max-width: 735px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-	border:1px solid #333;		    
-    border-radius: 10px;
-   }
-   
-   .form-title{
-    text-align: center;
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 30px;
-    margin-top: 20px;
-   }
-   .form-label{
-    font-size: 20px;
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    margin-top: 25px;
-   }
+}
 
-   
-   .button-registrar {
-    width: 70%;
+.form-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 5px;
+    background-color: #f3f3f3;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.form-label {
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 13px;
+    margin-top: 10px;
+}
+
+.button-registrar {
+    width: 60%;
     border-radius: 18px;
     border: 1px solid transparent;
     background-color: #333;
     color: #FFFFFF;
     font-size: 14px;
-
-    padding: 12px 45px;
+    padding: 10px 30px;
     letter-spacing: 1px;
-
     transition: transform 80ms ease-in;
-    margin-bottom: 20px;
-
+    margin-bottom: 10px;
 }
+
+
+
 
 .button-registrar:active {
     transform: scale(0.95);
@@ -64,7 +64,7 @@ body {
 
    .botones-inicios{
     text-align: center;
-    padding-bottom: 33px;
+    padding-bottom: 22px;
    }
    .signinButton{
     background-color: #FFFFFF;
@@ -72,8 +72,8 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 65px;
-    width: 65px;
+    height: 50px;
+    width: 50px;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(196, 194, 194);
@@ -83,7 +83,7 @@ body {
    }
 .icono{
     color: #333;
-   font-size: 24px;
+   font-size: 20px;
    text-decoration: none;
 }
 .signinButton:hover {
@@ -105,12 +105,13 @@ margin-left: 28px;
 
 }
 .input-field {
-    background-color: #eeeeee;
+    background-color: #d6d6d6;
 	border: none;
 	outline: none;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 75%;
+    border-radius: 10px;
    }
    .input-field:focus{
 	background-color:#e0e0e0;
@@ -118,15 +119,7 @@ margin-left: 28px;
 	transition: 0,4s;
 }
    
-  
-   
-   .Line-separator {
-   
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    margin: 20px 0;
-   }
+
    
    .div-center {
     text-align: center;

@@ -81,7 +81,7 @@ const signInAnonimo = () => {
         <div className='div-center'>
           <h2 className='form-title'>Registrate</h2>
         </div>
-        <hr className='Line-separator' />
+        
         <form onSubmit={functAutenticacion}>
           <div className='inputBox'>
           <input className='input-field' type='text' placeholder='Nombre' id='nombre'/>
