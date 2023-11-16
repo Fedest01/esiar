@@ -6,6 +6,7 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
 import { doc, updateDoc } from 'firebase/firestore';
+import { getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInAnonymously, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
 import '../register/register.css'
@@ -118,24 +119,47 @@ const signInAnonimo = () => {
         </div>
     </>
     )}
-    // Función para deshabilitar un usuario
-  const deshabilitarUsuario = async (uid) => {
-  const userRef = doc(db, 'users', uid);
+    // Función para obtener el UID de un usuario por su correo electrónico
+  const obtenerUidPorCorreo = async (correo) => {
+  const usersCollection = db.collection('users');
 
   try {
-    // Actualiza el campo 'activo' a false para deshabilitar el usuario
-    await updateDoc(userRef, {
-      activo: false,
-    });
-
-    console.log('Usuario deshabilitado con éxito');
+    const querySnapshot = await getDocs(usersCollection.where('email', '==', correo));
+    if (!querySnapshot.empty) {
+      // Supongo que hay un solo usuario con el correo proporcionado
+      const usuario = querySnapshot.docs[0].data();
+      const uidUsuario = usuario.uid;
+      console.log('UID del usuario:', uidUsuario);
+    } else {
+      console.error('No se encontró ningún usuario con el correo proporcionado');
+    }
   } catch (error) {
-    console.error('Error al deshabilitar el usuario:', error);
+    console.error('Error al obtener el UID del usuario:', error);
   }
 };
 
 // Uso de la función
-const uidUsuarioADeshabilitar = 'uid_del_usuario_a_deshabilitar';
-deshabilitarUsuario(uidUsuarioADeshabilitar);
+const correoUsuario = 'correo_del_usuario_a_deshabilitar@example.com';
+obtenerUidPorCorreo(correoUsuario);
+
+// Función para deshabilitar un usuario
+    const deshabilitarUsuario = async (uid) => {
+    const userRef = doc(db, 'users', uid);
+
+    try {
+      // Actualiza el campo 'activo' a false para deshabilitar el usuario
+      await updateDoc(userRef, {
+        activo: false,
+      });
+
+      console.log('Usuario deshabilitado con éxito');
+    } catch (error) {
+      console.error('Error al deshabilitar el usuario:', error);
+    }
+  };
+
+  // Uso de la función
+  const uidUsuarioADeshabilitar = 'uid_del_usuario_a_deshabilitar';
+  deshabilitarUsuario(uidUsuarioADeshabilitar);
     
     export {Registro} ;
