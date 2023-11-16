@@ -16,26 +16,29 @@ function Registro(props) {
   const [errorMessage, setErrorMessage] = useState(null);
   
 
-  const functAutenticacion = async (e) =>{  
-     e.preventDefault();
-     const correo = e.target.email.value;
-     const contraseña = e.target.password.value;
-     const confirmarContraseña = e.target['con-password'].value;
-     const nombre = e.target.nombre.value;
+  const functAutenticacion = async (e) => {  
+    e.preventDefault();
+    const correo = e.target.email.value;
+    const contraseña = e.target.password.value;
+    const confirmarContraseña = e.target['con-password'].value;
+    const nombre = e.target.nombre.value;
  
-     // Guardar el nombre, correo y contraseña en la base de datos
-     try{ 
-       const userCredential = await createUserWithEmailAndPassword (auth, correo, contraseña);
-       await setDoc(doc(db, "Usuarios", userCredential.user.uid), {
-         nombre: nombre,
-         email: correo,
-         contraseña: contraseña
-       });
-     }catch (error) {
-       console.error("Error al guardar en la base de datos:", error);
-       setErrorMessage("Hubo un error inesperado, por favor intente más tarde.");
-  }
- }
+    // Guardar el nombre, correo y contraseña en la base de datos
+    try { 
+      const userCredential = await createUserWithEmailAndPassword(auth, correo, contraseña);
+      const userId = userCredential.user.uid;
+ 
+      // Utiliza setDoc() para agregar el documento al recopilador "Usuarios"
+      await setDoc(doc(db, "Usuarios", userId), {
+        nombre: nombre,
+        email: correo,
+        contraseña: contraseña
+      });
+    } catch (error) {
+      console.error("Error al guardar en la base de datos:", error);
+      setErrorMessage("Hubo un error inesperado, por favor intente más tarde.");
+    }
+ };
  
  // Constante para iniciar sesion con google
  const signInWithGoogle = () => {
