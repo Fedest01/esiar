@@ -6,7 +6,7 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
 import { doc, updateDoc } from 'firebase/firestore';
-import { getDoc } from 'firebase/firestore';
+import { getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInAnonymously, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
 import '../register/register.css'
@@ -121,7 +121,7 @@ const signInAnonimo = () => {
     )}
     // Función para obtener el UID de un usuario por su correo electrónico
   const obtenerUidPorCorreo = async (correo) => {
-  const usersCollection = db.collection('users');
+  const usersCollection = db.collection('Usuarios');
 
   try {
     const querySnapshot = await getDocs(usersCollection.where('email', '==', correo));
@@ -162,4 +162,4 @@ obtenerUidPorCorreo(correoUsuario);
   const uidUsuarioADeshabilitar = 'uid_del_usuario_a_deshabilitar';
   deshabilitarUsuario(uidUsuarioADeshabilitar);
     
-    export {Registro} ;
+  export {Registro} ;
