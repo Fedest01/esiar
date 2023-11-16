@@ -5,6 +5,8 @@ import { faGoogle,faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseConfig';
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInAnonymously, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
 import '../register/register.css'
 
@@ -116,5 +118,24 @@ const signInAnonimo = () => {
         </div>
     </>
     )}
+    // Función para deshabilitar un usuario
+  const deshabilitarUsuario = async (uid) => {
+  const userRef = doc(db, 'users', uid);
+
+  try {
+    // Actualiza el campo 'activo' a false para deshabilitar el usuario
+    await updateDoc(userRef, {
+      activo: false,
+    });
+
+    console.log('Usuario deshabilitado con éxito');
+  } catch (error) {
+    console.error('Error al deshabilitar el usuario:', error);
+  }
+};
+
+// Uso de la función
+const uidUsuarioADeshabilitar = 'uid_del_usuario_a_deshabilitar';
+deshabilitarUsuario(uidUsuarioADeshabilitar);
     
     export {Registro} ;
