@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle,faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -70,7 +70,7 @@ const signInWithGoogle = () => {
     };
 
 return (
-    <>
+    
     <div className="form-container">
         <h2 className='form-title'>Iniciar Sesion</h2>
 
@@ -118,8 +118,9 @@ return (
             </Link>
         </h4>
       </div>
-    </>
+    
     );
+    
 }
   export {Login};
 

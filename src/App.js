@@ -10,8 +10,7 @@ function App() {
     
       <div className='app'>
         <h1>Esiar</h1>
-        
-        <Login />
+        <Registro />
       </div>
     
   );

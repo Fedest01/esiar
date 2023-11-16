@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import appFirebase from '../firebaseConfig/firebaseConfig.js';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
+import { getAuth, signInWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
 
 const auth = getAuth(appFirebase);
 const db = getFirestore(appFirebase);
@@ -28,10 +28,21 @@ function Registro(props) {
     }catch (error) {
       console.error("Error al guardar en la base de datos:", error);
       setErrorMessage("Hubo un error inesperado, por favor intente más tarde.");
-    }
  }
+}
 
+// Constante para iniciar sesion con google
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+   signInWithPopup(auth, provider)
+     .then((result) => {
+       console.log(result.user);  // Puedes acceder a la información del usuario aquí
+     }).catch((error) => {
+       console.log(error.message);
+     });
+   }
 
+   
   return (
     <>
       <div className="form-container">
@@ -50,6 +61,8 @@ function Registro(props) {
           
           <input className='input-field' type='password' placeholder='Confirmar contraseña ' id='con-password'/>
           
+          <button onClick={signInWithGoogle}>Iniciar sesión con Google</button> 
+
           <div className='div-center'>
           <button className='button'>Registrarse</button>
           </div>
@@ -57,6 +70,6 @@ function Registro(props) {
       
         </div>
     </>
-    )};
+    )}
     
     export {Registro} ;
