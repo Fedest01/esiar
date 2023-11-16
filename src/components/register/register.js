@@ -76,35 +76,38 @@ const signInAnonimo = () => {
     <>
       <div className="form-container">
         <div className='div-center'>
-          <h2 className='form-title'>Registrarse</h2>
+          <h2 className='form-title'>Registrate</h2>
         </div>
         <hr className='Line-separator' />
         <form onSubmit={functAutenticacion}>
-          <div className='inputBlock'>
-          <div><input className='input-field inputMitad' type='text' placeholder='Nombre' id='nombre'/></div>
-    
-          </div>
+          <div className='inputBox'>
+          <input className='input-field' type='text' placeholder='Nombre' id='nombre'/>
+
+         
           <input className='input-field' type='text' placeholder='E-mail' id='email'/>
                       
           <input className='input-field' type='password' placeholder='Contraseña ' id='password'/>
           
           <input className='input-field' type='password' placeholder='Confirmar contraseña ' id='con-password'/>
-        
-        
-          <button onClick={signInWithGoogle} className='google-signin-button'>
-          <FontAwesomeIcon icon={faGoogle} />
-        </button>    
+          </div>
+          <h4 className='form-label'>O ingresa con</h4>
 
-        <button onClick={signInWithGithub} className='google-signin-button'>
-          <FontAwesomeIcon icon={faGithub} />
-        </button>
+          <div className='botones-inicios'>
+            <button onClick={signInWithGoogle} className='signinButton'>
+              <FontAwesomeIcon className='icono google' icon={faGoogle} />
+              </button>    
 
-        <button onClick={signInAnonimo} className='google-signin-button'>
-          <FontAwesomeIcon icon={faUserSecret} />
-        </button>
+            <button onClick={signInWithGithub} className='signinButton'>
+            <FontAwesomeIcon className='icono github' icon={faGithub} />
+            </button>
+
+            <button onClick={signInAnonimo} className='signinButton'>
+             <FontAwesomeIcon className='icono anonimo' icon={faUserSecret} />
+            </button>
+        </div>
 
           <div className='div-center'>
-          <button className='button'>Registrarse</button>
+          <button className='button-registrar'>REGISTRARSE</button>
           </div>
         </form>
       

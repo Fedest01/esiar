@@ -1,58 +1,128 @@
 body {
-    background-color: #f8f9fa;
-    font-family: 'Open Sans', sans-serif;
+    background-color: #f3f3f3;
+    font-family: 'Montserrat', sans-serif;
    }
    
    .form-container {
-    max-width: 600px;
+    position: relative;
+	overflow: hidden;
+    max-width: 735px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid #333;
+			    
+    border-radius: 10px;
    }
    
-   .form-title {
+   .form-title{
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+    margin-top: 20px;
+   }
+   .form-label{
+    font-size: 20px;
     text-align: center;
     color: #333;
     margin-bottom: 30px;
+    margin-top: 25px;
    }
+
    
-   .input-field {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
+   .button-registrar {
+    width: 70%;
+	border-radius: 20px;
+	border: 1px solid transparent;
+	background-color: #333;
+	color: #FFFFFF;
+	font-size: 14px;
+	
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	
+	transition: transform 80ms ease-in;
+    margin-bottom: 20px;
+	
+}
+
+.button-registar:active {
+	transform: scale(0,50);
+}
+
+.button-registar:focus {
+	outline: none;
+}
+.button-registrar:hover {
+    background-color: rgb(241, 241, 241);
+    color: #333;
+	border: 1px solid #333;
+	border-radius: 24px;
+	transition: 0.5s;
+}
+
+   .botones-inicios{
+    text-align: center;
+    padding-bottom: 33px;
    }
-   
-   .button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+   .signinButton{
+    
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    width: 65px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 50%;
+    margin: 0px 15px;
    }
-   
-   .button:hover {
-    background-color: #0056b3;
-   }
-   
-   .inputBlock {
+.icono{
+    color: #333;
+   font-size: 24px;
+   text-decoration: none;
+}
+.signinButton:hover {
+	transition: 0,8s;
+	background-color: #9fa1a396;
+    
+	
+}
+.signinButton:active{
+    transform: scale(0.95);
+}
+.anonimo{
+margin-left: 28px;
+}
+.inputBox {
     display: flex;
-    justify-content: space-between;
+ flex-direction: column;
+ align-items: center;
+
+}
+.input-field {
+    background-color: #eeeeee;
+	border: none;
+	outline: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 75%;
    }
+   .input-field:focus{
+	background-color:#e0e0e0;
+	border-radius: 7px;
+	transition: 0,4s;
+}
    
-   .inputMitad {
-    width: 48%;
-   }
+  
    
    .Line-separator {
+   
+    width: 100%;
     border: none;
     border-bottom: 1px solid #ddd;
     margin: 20px 0;
