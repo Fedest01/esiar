@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import appFirebase from '../firebaseConfig/firebaseConfig.js';
+import {appFirebase} from '../firebaseConfig/firebaseConfig.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle,faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
-import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
-import { getFirestore } from "firebase/firestore";
-import { doc, updateDoc } from 'firebase/firestore';
-import { getDocs } from 'firebase/firestore';
-import { db } from '../../firebase/firebaseConfig';
+import { doc, setDoc, getDocs, getFirestore, updateDoc, collection, query, where } from "firebase/firestore"; 
+import { db } from '../firebaseConfig/firebaseConfig.js';
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInAnonymously, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
 import '../register/register.css'
 
 const auth = getAuth(appFirebase);
-const db = getFirestore(appFirebase);
+//const db = getFirestore(appFirebase);
 
 function Registro(props) {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -126,7 +123,7 @@ const signInAnonimo = () => {
   try {
     const querySnapshot = await getDocs(usersCollection.where('email', '==', correo));
     if (!querySnapshot.empty) {
-      // Supongo que hay un solo usuario con el correo proporcionado
+      // usuario con el correo proporcionado
       const usuario = querySnapshot.docs[0].data();
       const uidUsuario = usuario.uid;
       console.log('UID del usuario:', uidUsuario);
@@ -144,7 +141,7 @@ obtenerUidPorCorreo(correoUsuario);
 
 // Función para deshabilitar un usuario
     const deshabilitarUsuario = async (uid) => {
-    const userRef = doc(db, 'users', uid);
+    const userRef = doc(db, 'Usuarios', uid);
 
     try {
       // Actualiza el campo 'activo' a false para deshabilitar el usuario
@@ -162,4 +159,7 @@ obtenerUidPorCorreo(correoUsuario);
   const uidUsuarioADeshabilitar = 'uid_del_usuario_a_deshabilitar';
   deshabilitarUsuario(uidUsuarioADeshabilitar);
     
+  
   export {Registro} ;
+  export {obtenerUidPorCorreo};
+  export {deshabilitarUsuario};
