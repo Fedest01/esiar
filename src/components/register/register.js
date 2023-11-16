@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import appFirebase from '../firebaseConfig/firebaseConfig.js';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle,faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
-
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInAnonymously, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth'
 import '../register/register.css'
+
 const auth = getAuth(appFirebase);
 const db = getFirestore(appFirebase);
 
